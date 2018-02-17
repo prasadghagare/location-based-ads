@@ -1,2 +1,2 @@
 # location-based-ads
-BITS project
+BITS project on location based ads
