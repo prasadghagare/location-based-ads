@@ -1,0 +1,207 @@
+{
+	"info": {
+		"name": "LBA",
+		"_postman_id": "249f8258-7ab4-6d2c-8a33-77f64328836b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Uploadbills",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/uploadbill?billdetails={\"bananas\":1, \"milk\":2}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"uploadbill"
+					],
+					"query": [
+						{
+							"key": "billdetails",
+							"value": "{\"bananas\":1, \"milk\":2}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Addoffer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/addoffer?offer={\"location_x\":22.3, \"location_y\":20.2 , \"place\":\"Big Bazaar\", \"item\":\"Milk\", \"discount\": \"5\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addoffer"
+					],
+					"query": [
+						{
+							"key": "offer",
+							"value": "{\"location_x\":22.3, \"location_y\":20.2 , \"place\":\"Big Bazaar\", \"item\":\"Milk\", \"discount\": \"5\"}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ViewOffers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/viewoffers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"viewoffers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "adduser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/adduser?user_details={\"username\":\"sushilpatil\", \"phone\":\"9870456051\",\"password\":\"sushi\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"adduser"
+					],
+					"query": [
+						{
+							"key": "user_details",
+							"value": "{\"username\":\"sushilpatil\", \"phone\":\"9870456051\",\"password\":\"sushi\"}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "viewusers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/viewusers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"viewusers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "viewuseroffers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/viewuseroffers?username=sushilpatil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"viewuseroffers"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "sushilpatil",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "sendlocation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/sendlocation?location_x=10.2&location_y=31.3&username=sushilpatil&radius=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"sendlocation"
+					],
+					"query": [
+						{
+							"key": "location_x",
+							"value": "10.2",
+							"equals": true
+						},
+						{
+							"key": "location_y",
+							"value": "31.3",
+							"equals": true
+						},
+						{
+							"key": "username",
+							"value": "sushilpatil",
+							"equals": true
+						},
+						{
+							"key": "radius",
+							"value": "2",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
