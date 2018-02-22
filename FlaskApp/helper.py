@@ -4,6 +4,8 @@ app = Flask(__name__)
 
 from queue import get_queue_for_user
 
+from database_utilities import query_database, insert_database , generate_query_from_column_list
+
 def convertTextToJson(text):
     json_object = json.loads(text)
     return json_object
@@ -13,6 +15,9 @@ def handle_upload_bill(bill_details):
     try:
         bill_details_json = convertTextToJson(bill_details)
         app.logger.debug ("Json Object {}".format(bill_details_json))
+
+
+
     except Exception as e:
         app.logger.error("Exception {}".format(e))
         return "Failure"
@@ -39,10 +44,14 @@ def handle_add_offers(offer_details):
 
 def handle_view_offers():
     #Return list of offers from db
-
     # TODO: replae this with Offer object
-    sample_offer = [{"location_x":22.3, "location_y":20.2 , "place":"Big Bazaar", "item":"Milk", "discount": "5"}]
-    return sample_offer
+    #sample_offer = [{"location_x":22.3, "location_y":20.2 , "place":"Big Bazaar", "item":"Milk", "discount": "5"}]
+    column_list=["location_x","location_y","place","item","discount"]
+    table ="offer_details"
+    query = generate_query_from_column_list(table, column_list)
+    results= query_database(query)
+    offer = json.dumps([{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3],column_list[4]:column[4]} for column in results ])
+    return offer
 
 
 
@@ -62,7 +71,16 @@ def handle_add_user(user_details):
 
 def handle_view_users():
     #Return list of offers from db
-    sample_users = [{"username":"sushilpatil", "phone":"9870456051","password":"sushi"}]
+    #sample_users = [{"username":"sushilpatil", "phone":"9870456051","password":"sushi"}]
+
+    column_list=["username","phone","password","emailid"]
+    table ="user_details"
+    query = generate_query_from_column_list(table, column_list)
+    results= query_database(query)
+    offer = json.dumps([{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3]} for column in results ])
+    return offer
+
+
     return sample_users
 
 def handle_view_user_offers(username):
@@ -98,3 +116,9 @@ def handle_send_location(location_x, location_y, username, radius):
 
     #return sucess if check and save true
     return "Success"
+
+
+
+
+def convert_lat_long_to_google_maps_url(location_x,location_y):
+    return "https://www.google.com/maps/search/{},{}".format(location_x,location_y)
