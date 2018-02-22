@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sushilpatil.locationbasedads.MainActivity">
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="username"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+
+
+    </android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Server IP : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+    <TextView
+        android:id="@+id/serverip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="serverip"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="3dp" />
+    </android.widget.LinearLayout>
+
+
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email id  : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+        <TextView
+        android:id="@+id/emailid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="emailid"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="3dp" />
+    </android.widget.LinearLayout>
+
+    <Button
+        android:id="@+id/UploadBill"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Bills"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location X : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+    <TextView
+        android:id="@+id/location_x"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="location_x"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="3dp" />
+    </android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Y : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+    <TextView
+        android:id="@+id/location_y"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="location_y"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="3dp" />
+    </android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radius(kms) : "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+
+        <EditText
+        android:id="@+id/radius"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Radius in kms"
+        android:text="5.0" />
+    </android.widget.LinearLayout>
+    <Button
+        android:id="@+id/SendLocation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Location"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+
+</android.widget.LinearLayout>
