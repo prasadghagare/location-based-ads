@@ -13,9 +13,10 @@ def upload_bill():
         app.logger.info("Received in POST message for billdetails : {} ".format(request.args))
 
         bill_details_json = request.args["billdetails"]
+        username = request.args["username"]
         #print ("Json : {}".format(bill_details_json))
 
-        return helper.handle_upload_bill(bill_details_json)
+        return helper.handle_upload_bill(bill_details_json,username)
 
 
 @app.route("/addoffer", methods=["POST"])

@@ -10,21 +10,32 @@ def convertTextToJson(text):
     json_object = json.loads(text)
     return json_object
 
-def handle_upload_bill(bill_details):
+def handle_upload_bill(bill_details,username):
     #Check JSON blob
     try:
         bill_details_json = convertTextToJson(bill_details)
         app.logger.debug ("Json Object {}".format(bill_details_json))
 
+        # Insert into MySQL
+        # sample= "insert into user_ocr_details(user, item, count) values("sushilpatil", "Milk", 3);"
 
+        table="user_ocr_details"
+        column_list = ["user","item","count"]
+
+        for key in bill_details_json:
+            insert_query= 'insert into {} ({}) values ("{}","{}","{}")'.format(table,",".join(column_list) , username, key, bill_details_json[key])
+            app.logger.debug("Insert query generated in handle_upload_bill - {}".format(insert_query))
+
+            insert_database(insert_query)
 
     except Exception as e:
         app.logger.error("Exception {}".format(e))
         return "Failure"
-    # Insert into MySQL
-
     #return sucess if check and save true
     return "Success"
+
+
+
 
 
 def handle_add_offers(offer_details):
