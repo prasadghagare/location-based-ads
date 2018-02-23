@@ -37,3 +37,9 @@ username varchar(50) ,
 offer varchar(200) ,
 ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE item_list (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  item varchar(100)
+);

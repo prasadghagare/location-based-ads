@@ -75,3 +75,13 @@ def send_location():
         #print ("Json : {}".format(bill_details_json))
 
         return helper.handle_send_location(location_x, location_y, username, radius)
+
+
+
+@app.route("/getitemlist", methods=["POST"])
+def  get_item_list():
+    if request.method == 'POST':
+        app.logger.info("Received in POST message for get_item_list : {} ".format(request.args))
+        list_of_items = helper.handle_get_item_list()
+
+        return str(list_of+items)
