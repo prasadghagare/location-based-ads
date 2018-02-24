@@ -72,9 +72,11 @@ def send_location():
         location_y = request.args["location_y"]
         username = request.args["username"]
         radius = request.args["radius"] # Can instead configure system wide , but for demo purpose using it in the HTTP
+        count = request.args["count"]
+        email_id = request.args["emailid"]
         #print ("Json : {}".format(bill_details_json))
 
-        return helper.handle_send_location(location_x, location_y, username, radius)
+        return helper.handle_send_location(location_x, location_y, username, radius, count, email_id)
 
 
 

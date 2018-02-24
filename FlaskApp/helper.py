@@ -115,7 +115,7 @@ def handle_get_item_list():
 
 
 # TODO:  Fix this
-def handle_send_location(location_x, location_y, username, radius):
+def handle_send_location(location_x, location_y, username, radius, count,email_id):
     try:
         app.logger.info("Received location info - location_x:{}, location_y:{} , username:{} , radius:{}")
 
@@ -128,7 +128,7 @@ def handle_send_location(location_x, location_y, username, radius):
         # select item,count(*) as count from user_ocr_details where user='sushilpatil' group by item order by count desc limit 2;
         # TODO; what it returns
         #[{"item":"Milk","count":"2"},{}]
-        items_that_user_buy = logic.get_items_that_user_buy(username, threshold)
+        items_that_user_buy = logic.get_items_that_user_buy(username, count)
 
         # Find offers that match
         #[{"item": "Milk", "location_x": "20.2", "location_y": "32.1", "place": "Big Bazaar", "discount": "10"},{}]
@@ -139,7 +139,7 @@ def handle_send_location(location_x, location_y, username, radius):
         #["Milk at Big Bazaar for 5% discount - URL https://www.google.com/maps/search/18.9947392,72.82435190000001",""]
         offers_in_text = logic.get_offers_in_text(offers_that_match)
         # Send offers in email format
-        logic.send_email(offers_in_text)
+        logic.send_email(offers_in_text.email_id)
         # if no exception send success else failure
     except Exception as e:
         app.logger.error("Exception {}".format(e))
