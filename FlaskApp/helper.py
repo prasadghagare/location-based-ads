@@ -62,7 +62,7 @@ def handle_view_offers():
     table ="offer_details"
     query = generate_query_from_column_list(table, column_list)
     results= query_database(query)
-    offer = [{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3],column_list[4]:column[4]} for column in results ]
+    offer = json.dumps([{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3],column_list[4]:column[4]} for column in results ])
     return offer
 
 
@@ -89,13 +89,12 @@ def handle_view_users():
     table ="user_details"
     query = generate_query_from_column_list(table, column_list)
     results= query_database(query)
-    offer = [{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3]} for column in results ]
+    offer = json.dumps([{column_list[0]:column[0], column_list[1]:column[1],column_list[2]:column[2],column_list[3]:column[3]} for column in results ])
     return offer
 
 
     return sample_users
 
-#TODO; Since queue is not implemented get the list of offers suggested for the user
 def handle_view_user_offers(username):
     #Check JSON blob
     try:
