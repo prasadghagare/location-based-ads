@@ -3,6 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 
 from queue import get_queue_for_user
+import logic
 
 from database_utilities import query_database, insert_database , generate_query_from_column_list
 
@@ -117,12 +118,13 @@ def handle_get_item_list():
 # TODO:  Fix this
 def handle_send_location(location_x, location_y, username, radius, count,email_id):
     try:
-        app.logger.info("Received location info - location_x:{}, location_y:{} , username:{} , radius:{}")
+        app.logger.info("Received location info - location_x:{}, location_y:{} , username:{} , radius:{} , count:{} , email_id:{}".format(location_x,location_y,username,radius,count,email_id))
 
         # Find list of offers in the radius of location_x and location_y
         #[{"item": "Milk", "location_x": "20.2", "location_y": "32.1", "place": "Big Bazaar", "discount": "10"},{}]
         offer_list_within_radius = logic.get_offer_list_within_radius(location_x,location_y,radius)
 
+        app.logger.info("Offers within radius - {}".format(len(offer_list_within_radius)))
 
         # Get items that user buy
         # select item,count(*) as count from user_ocr_details where user='sushilpatil' group by item order by count desc limit 2;
@@ -130,20 +132,26 @@ def handle_send_location(location_x, location_y, username, radius, count,email_i
         #[{"item":"Milk","count":"2"},{}]
         items_that_user_buy = logic.get_items_that_user_buy(username, count)
 
+        app.logger.info("Count of items that user buy - {}".format(len(items_that_user_buy)))
+
+
         # Find offers that match
         #[{"item": "Milk", "location_x": "20.2", "location_y": "32.1", "place": "Big Bazaar", "discount": "10"},{}]
         offers_that_match = logic.get_items_that_match(offer_list_within_radius, items_that_user_buy)
+        app.logger.info("Count of offers that match - {}".format(len(offers_that_match)))
+
 
         # TODO;Send the matching list to the queue for the user
         # As of now we'll send this list to the email client to generate list of offer texts
         #["Milk at Big Bazaar for 5% discount - URL https://www.google.com/maps/search/18.9947392,72.82435190000001",""]
         offers_in_text = logic.get_offers_in_text(offers_that_match)
+        app.logger.debug("Offers in text -- {}".format(offers_in_text))
         # Send offers in email format
-        logic.send_email(offers_in_text.email_id)
+        logic.send_email(offers_in_text,email_id)
         # if no exception send success else failure
+        #return sucess if check and save true
+        return "Success"
+
     except Exception as e:
         app.logger.error("Exception {}".format(e))
         return "Failure"
-
-    #return sucess if check and save true
-    return "Success"
