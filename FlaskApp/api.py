@@ -82,8 +82,15 @@ def send_location():
 
 @app.route("/getitemlist", methods=["POST"])
 def  get_item_list():
-    if request.method == 'POST':
-        app.logger.info("Received in POST message for get_item_list : {} ".format(request.args))
-        list_of_items = helper.handle_get_item_list()
+    app.logger.info("Received message for get_item_list : {} ".format(request.args))
+    list_of_items = helper.handle_get_item_list()
+    #return str(list_of_items)
+    return str(",".join(list_of_items))
 
-        return str(list_of+items)
+@app.route("/viewitemlist")
+def  view_item_list():
+    app.logger.info("Received message for get_item_list : {} ".format(request.args))
+    list_of_items = helper.handle_get_item_list()
+    #return str(list_of_items)
+    return render_template('view_list.html',list = list_of_items if len(list_of_items)>0 else "Empty response")
+

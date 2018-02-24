@@ -146,10 +146,15 @@ def handle_send_location(location_x, location_y, username, radius, count,email_i
         #["Milk at Big Bazaar for 5% discount - URL https://www.google.com/maps/search/18.9947392,72.82435190000001",""]
         offers_in_text = logic.get_offers_in_text(offers_that_match)
         app.logger.debug("Offers in text -- {}".format(offers_in_text))
-        # Send offers in email format
-        logic.send_email(offers_in_text,email_id)
-        # if no exception send success else failure
-        #return sucess if check and save true
+        if len(offers_in_text)>0:
+            # Send offers in email format
+            logic.send_email(offers_in_text,email_id)
+            # if no exception send success else failure
+            #return sucess if check and save true
+        else:
+            # No offers to send to
+            no_offers_message = "Sorry No offers!"
+            logic.send_email(no_offers_message,email_id)
         return "Success"
 
     except Exception as e:
