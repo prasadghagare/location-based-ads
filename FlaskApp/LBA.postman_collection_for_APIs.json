@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:5000/uploadbill?billdetails={\"bananas\":1, \"milk\":2}",
+					"raw": "http://localhost:5000/uploadbill?billdetails={\"bananas\":1, \"milk\":2}&username=sushilpatil",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -26,6 +26,11 @@
 						{
 							"key": "billdetails",
 							"value": "{\"bananas\":1, \"milk\":2}",
+							"equals": true
+						},
+						{
+							"key": "username",
+							"value": "sushilpatil",
 							"equals": true
 						}
 					]
@@ -167,7 +172,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:5000/sendlocation?location_x=10.2&location_y=31.3&username=sushilpatil&radius=2",
+					"raw": "http://localhost:5000/sendlocation?location_x=10.2&location_y=31.3&username=sushilpatil&radius=2&count=100&emailid=sushil21patil@gmail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -195,6 +200,16 @@
 						{
 							"key": "radius",
 							"value": "2",
+							"equals": true
+						},
+						{
+							"key": "count",
+							"value": "100",
+							"equals": true
+						},
+						{
+							"key": "emailid",
+							"value": "sushil21patil@gmail.com",
 							"equals": true
 						}
 					]
