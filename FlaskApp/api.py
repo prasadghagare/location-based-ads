@@ -32,7 +32,8 @@ def add_offer():
 @app.route("/viewoffers")
 def view_offers():
     list_of_offers = helper.handle_view_offers()
-    return str(list_of_offers)
+    #return str(list_of_offers)
+    return render_template('view_list.html',list = list_of_offers if len(list_of_offers)>0 else "Empty response")
 
 @app.route("/adduser", methods=["POST"])
 def add_user():
@@ -47,19 +48,19 @@ def add_user():
 @app.route("/viewusers")
 def view_users():
     list_of_users = helper.handle_view_users()
-    return str(list_of_users)
+    #return str(list_of_users)
+    return render_template('view_list.html',list = list_of_users if len(list_of_users)>0 else "Empty response")
 
-@app.route("/viewuseroffers", methods=["POST"])
+@app.route("/viewuseroffers", methods=["GET"])
 def  view_user_offers():
-    if request.method == 'POST':
-        app.logger.info("Received in POST message for view_user_offers : {} ".format(request.args))
+    if request.method == 'GET':
+        app.logger.info("Received in GET message for view_user_offers : {} ".format(request.args))
 
         username = request.args["username"]
         #print ("Json : {}".format(bill_details_json))
 
         list_of_offers_for_user = helper.handle_view_user_offers(username)
-
-        return str(list_of_offers_for_user)
+        return render_template('view_list.html',list = list_of_offers_for_user if len(list_of_offers_for_user)>0 else "Empty response")
 
 
 
@@ -80,10 +81,9 @@ def send_location():
 
 
 
-@app.route("/getitemlist", methods=["POST"])
+@app.route("/getitemlist")
 def  get_item_list():
-    if request.method == 'POST':
-        app.logger.info("Received in POST message for get_item_list : {} ".format(request.args))
-        list_of_items = helper.handle_get_item_list()
-
-        return str(list_of+items)
+    app.logger.info("Received message for get_item_list : {} ".format(request.args))
+    list_of_items = helper.handle_get_item_list()
+    #return str(list_of_items)
+    return render_template('view_list.html',list = list_of_items if len(list_of_items)>0 else "Empty response")
