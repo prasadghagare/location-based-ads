@@ -7,4 +7,11 @@ flask run --host=0.0.0.0
 
 
 
+Before doing pip install
+
+sudo apt-get install mysql-server
+sudo apt-get install libmysqlclient-dev
+
+
+
 * To load all pip do `pip install -r requirements.txt`
