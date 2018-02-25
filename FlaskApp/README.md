@@ -3,4 +3,8 @@ export FLASK_APP=api.py
 flask run --host=0.0.0.0
 
 
-# You need api_keys.yaml file located under FlaskApp/ for sending out email. Find it in your email.
+*You need api_keys.yaml file located under FlaskApp/ for sending out email. Find it in your email.
+
+
+
+* To load all pip do `pip install -r requirements.txt`
