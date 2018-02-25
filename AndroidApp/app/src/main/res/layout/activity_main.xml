@@ -92,6 +92,23 @@
         android:text="Upload Bills"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="52dp" />
+    <TextView
+        android:id="@+id/comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Comments "
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="3dp" />
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/main_progress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <android.widget.LinearLayout
         xmlns:app="http://schemas.anwdroid.com/apk/res-auto"
@@ -108,7 +125,7 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="3dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/location_x"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -132,7 +149,7 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="3dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/location_y"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
