@@ -94,9 +94,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mServerIp =(EditText)findViewById(R.id.serverip);
 
-        final String emailId = mEmailView.getText().toString();
-        final String username = mUsernameView.getText().toString();
-        final String serverip = mServerIp.getText().toString();
+
 
 
 
@@ -106,7 +104,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 attemptLogin();
-
+                final String emailId = mEmailView.getText().toString();
+                final String username = mUsernameView.getText().toString();
+                final String serverip = mServerIp.getText().toString();
                 //Once login is successful
                 Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
 

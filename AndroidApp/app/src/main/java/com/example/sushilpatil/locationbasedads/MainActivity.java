@@ -499,11 +499,12 @@ public class MainActivity extends AppCompatActivity {
             for(int j = 0; j< b.length ; j++) {
                 System.out.println("Checking "+a[i].toLowerCase().trim() +" AND "+ b[j].toLowerCase().trim());
 
-                if(a[i].toLowerCase().trim() == b[j].toLowerCase().trim()) {
+                //if(a[i].toLowerCase().trim() == b[j].toLowerCase().trim()) {
+                if(a[i].toLowerCase().trim().contains(b[j].toLowerCase().trim())) {
                     //Check if the list already contains the common element
-                    if(!commonElements.contains(a[i].toLowerCase().trim())) {
+                    if(!commonElements.contains(b[j].toLowerCase().trim())) {
                         //add the common element into the list
-                        commonElements.add(a[i].toLowerCase().trim());
+                        commonElements.add(b[j].toLowerCase().trim());
                     }
                 }
             }
