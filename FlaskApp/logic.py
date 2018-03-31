@@ -21,6 +21,7 @@ def get_offer_list_within_radius(location_x, location_y, radius):
     #[{"item": "Milk", "location_x": "20.2", "location_y": "32.1", "place": "Big Bazaar", "discount": "10"},{}]
     def within_radius(current_x,current_y,x,y,radius):
         app.logger.debug("Checking if ({},{}) and ({},{}) are within the radius- {}".format(current_x,current_y,x,y,radius))
+        radius = float(radius)
         old_location = (current_x, current_y)
         new_location = (x,y)
         distance = vincenty(old_location,new_location).km
